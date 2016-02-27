@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cek()
+{
+ping -c 1 $1>dev/null
+[$? -eq 0] && echo Host dengan IP: $i sedang aktif.
+}
+
+for i in 152.118.24.54
+do
+cek $i & disown
+done

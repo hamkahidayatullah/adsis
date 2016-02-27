@@ -1,0 +1,32 @@
+#!/bin/bash
+
+TIMEOUT=1
+# banyaknya request ping sampai dapat respon
+ATTEMPT=5
+RETRY=0
+IP_WEB_SERVER=173.194.69.94
+
+PingGW() {
+# $1: ip web server
+# Use : PingGW var1
+# parameter
+while [ $i -le $ATTEMPT ]
+do 
+if (ping -s 16 -W $TIMEOUT -c 1 $1 > /dev/null 2>&1)
+then
+break 1
+fi
+i=$((i+1))
+sleep 1
+done
+RETRY=$i
+}
+
+PingGW ip_web_server
+
+if [$RETI -gt $ATTEMPT]
+then
+#kirim email
+echo -e"Subject: web server down\n\nWeb Server Down|n" | sendmail -f notifer hamkahidayatullah@gmail.com
+
+fi

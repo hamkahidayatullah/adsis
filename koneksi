@@ -1,0 +1,18 @@
+#!/bin/bash
+#tambahkan ip
+# HOSTS="www.google.com www.detik.com"
+HOSTS="masukan.nama.host"
+COUNT=1
+TIMEOUT=3
+#email
+SUBJECT="ping failed"
+EMAILID="hamkahidayatullah@gmail.com"
+for myHost in $HOSTS
+	do
+count=$(ping -W$TIMEOUT -c$COUNT $myHost | grep 'received' | awk -F',' '{print $2 } | awk '{print $1}'
+if [ $count -eq 0}; then
+# failed
+echo "host : $myHost is down (ping failed at $(date)" | mail -s
+"$SUBJECT" $EMAILID
+fi
+done

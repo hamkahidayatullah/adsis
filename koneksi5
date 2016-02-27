@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#melakukan  percobaan  koneksi sebanyak 10 kali dengan percob
+wget -q --tries=10 --timeout=20 --spider http://google.com
+if [[ $? -eq 0 ]]; then
+	echo "koneksi hidup"
+else
+	echo "Koneksi Mati"
+fi 
