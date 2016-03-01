@@ -1,9 +1,12 @@
 #!/bin/bash
 
+#tail -20 berfungsi untuk menampilkan history chat terakhir sebanyak maksimal 20 percakapan.
 tail -20 /home/hamkahidayatullah/shell_script/bin/history
 echo -n "Ketik pesan yang anda inginkan:"
+#membaca pesan yang telah diketikan
 read pesan
 
+#mengirim pesan yang telah diketikan kedalam file history.
 echo "$USER : $pesan" >> /home/hamkahidayatullah/shell_script/bin/history
 tail -20 /home/hamkahidayatullah/shell_script/bin/history
 
