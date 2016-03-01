@@ -1,7 +1,8 @@
 #!/bin/bash
 
-#melakukan  percobaan  koneksi sebanyak 10 kali dengan percob
+#melakukan  percobaan  koneksi pada google.com, sebanyak 10 kali dan setiap percobaan dilakukan setiap 20 detik.
 wget -q --tries=10 --timeout=20 --spider http://google.com
+#Jika hasil yang didapatkan = 0, yang artinya koneksi tersebut hidup, maka akan menampilkan informasi "koneksi hidup", dan sebaliknya akan menghasilkan informasi "koneksi mati".
 if [[ $? -eq 0 ]]; then
 	echo "koneksi hidup"
 else
